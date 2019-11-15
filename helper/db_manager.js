@@ -23,12 +23,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO user(usr, passwd) VALUES (?,?)";
 
             con.query(sql,[user,pass] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 callback(status);
             });
             con.end();
@@ -43,12 +43,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "DELETE from user WHERE iduser = ?";
 
             con.query(sql,userID ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 callback(status);
             });
             con.end();
@@ -63,12 +63,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "SELECT iduser from user WHERE usr = ? AND passwd = ?";
 
             con.query(sql,[usr,pass] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 if (result[0]) callback(status,result[0].iduser,usr);
                 else callback(0,null,null)
             });
@@ -84,11 +84,11 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO location(lat,lng,user_iduser) VALUES (?,?,?)";
             con.query(sql,[lat,lng, iduser] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 callback(status);
             });
             con.end();
@@ -100,12 +100,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "SELECT idlocation FROM location WHERE user_iduser = ? ORDER BY idlocation DESC LIMIT 1";
 
             con.query(sql,iduser ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 callback(status,result[0].idlocation);
             });
             con.end();
@@ -118,12 +118,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO crimerating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
             });
             con.end();
             
@@ -135,12 +135,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO educationrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
             });
             con.end();
             
@@ -152,12 +152,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO healthrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
             });
             con.end();
             
@@ -169,12 +169,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO mobilityrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
             });
             con.end();
             
@@ -186,12 +186,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "INSERT INTO restaurantrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
             });
             con.end();
             
@@ -204,12 +204,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "SELECT restaurantrating.location_idlocation as routeid,restaurantrating.value as restaurantrating, restaurantrating.unlocked as restaurantunlocked, healthrating.value as healthrating, healthrating.unlocked as healthunlocked, crimerating.value as crimerating, crimerating.unlocked as crimeunlocked, educationrating.value as educationrating, educationrating.unlocked as educationunlocked, mobilityrating.value as mobilityrating, mobilityrating.unlocked as mobilityunlocked FROM (((restaurantrating INNER JOIN healthrating ON restaurantrating.location_idlocation = healthrating.location_idlocation) INNER JOIN crimerating ON restaurantrating.location_idlocation = crimerating.location_idlocation) INNER JOIN educationrating ON restaurantrating.location_idlocation = educationrating.location_idlocation) INNER JOIN mobilityrating ON restaurantrating.location_idlocation = mobilityrating.location_idlocation WHERE restaurantrating.location_user_iduser = ?;";
 
             con.query(sql,iduser ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 if (result[0]) callback(status,result);
                 else callback(0,null);
             });
@@ -224,12 +224,12 @@ module.exports =
         var con = createConnection();
         con.connect(function(err) 
         {
-            var status = 404;
+            if(err) status = 404;
             var sql = "UPDATE "+category+" SET unlocked=1 WHERE location_idlocation = ? AND location_user_iduser = ?;";
 
             con.query(sql,[route,iduser] ,function (err, result) 
             {
-                var status = 404;
+                if(err) status = 404;
                 callback(status);
             });
             con.end();
