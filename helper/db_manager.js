@@ -211,7 +211,7 @@ module.exports =
             {
                 if(err) status = 404;
                 if (result!=null && result[0]) callback(status,result);
-                else callback(0,null);
+                else callback(404,null);
             });
             con.end();
             
