@@ -64,7 +64,7 @@ app.post('/userData', function (req, res)
         db.getUserData(iduser,function(status,result)
         {
     
-            if (!status) res.send({"status":status});
+            if (!status || result == null) res.send({"status":status});
             else
             {
                 var respon = [];
