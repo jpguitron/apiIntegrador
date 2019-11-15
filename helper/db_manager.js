@@ -106,7 +106,8 @@ module.exports =
             con.query(sql,iduser ,function (err, result) 
             {
                 if(err) status = 404;
-                callback(status,result[0].idlocation);
+                if(result != null && result[0]!=null) callback(status,result[0].idlocation);
+                else callback(status,null);
             });
             con.end();
         });
