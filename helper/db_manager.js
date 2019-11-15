@@ -210,7 +210,7 @@ module.exports =
             con.query(sql,iduser ,function (err, result) 
             {
                 if(err) status = 404;
-                if (result[0]) callback(status,result);
+                if (result!=null && result[0]) callback(status,result);
                 else callback(0,null);
             });
             con.end();
