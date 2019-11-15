@@ -70,7 +70,7 @@ module.exports =
             {
                 if(err) status = 404;
                 if (result[0]) callback(status,result[0].iduser,usr);
-                else callback(0,null,null)
+                else callback(404,null,null)
             });
             con.end();
         });
