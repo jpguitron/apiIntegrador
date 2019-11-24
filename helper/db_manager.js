@@ -120,7 +120,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "INSERT INTO crimerating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
+            var sql = "INSERT INTO crimeRating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
@@ -137,7 +137,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "INSERT INTO educationrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
+            var sql = "INSERT INTO educationRating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
@@ -154,7 +154,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "INSERT INTO healthrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
+            var sql = "INSERT INTO healthRating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
@@ -171,7 +171,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "INSERT INTO mobilityrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
+            var sql = "INSERT INTO mobilityRating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
@@ -188,7 +188,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "INSERT INTO restaurantrating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
+            var sql = "INSERT INTO restaurantRating(value, unlocked, location_user_iduser, location_idlocation) VALUES (?,0,?,?)";
 
             con.query(sql,[value,user,idLocation] ,function (err, result) 
             {
@@ -206,7 +206,7 @@ module.exports =
         con.connect(function(err) 
         {
             if(err) status = 404;
-            var sql = "SELECT restaurantrating.location_idlocation as routeid,restaurantrating.value as restaurantrating, restaurantrating.unlocked as restaurantunlocked, healthrating.value as healthrating, healthrating.unlocked as healthunlocked, crimerating.value as crimerating, crimerating.unlocked as crimeunlocked, educationrating.value as educationrating, educationrating.unlocked as educationunlocked, mobilityrating.value as mobilityrating, mobilityrating.unlocked as mobilityunlocked FROM (((restaurantrating INNER JOIN healthrating ON restaurantrating.location_idlocation = healthrating.location_idlocation) INNER JOIN crimerating ON restaurantrating.location_idlocation = crimerating.location_idlocation) INNER JOIN educationrating ON restaurantrating.location_idlocation = educationrating.location_idlocation) INNER JOIN mobilityrating ON restaurantrating.location_idlocation = mobilityrating.location_idlocation WHERE restaurantrating.location_user_iduser = ?;";
+            var sql = "SELECT restaurantRating.location_idlocation as routeid,restaurantRating.value as restaurantRating, restaurantRating.unlocked as restaurantunlocked, healthRating.value as healthRating, healthRating.unlocked as healthunlocked, crimeRating.value as crimeRating, crimeRating.unlocked as crimeunlocked, educationRating.value as educationRating, educationRating.unlocked as educationunlocked, mobilityRating.value as mobilityRating, mobilityRating.unlocked as mobilityunlocked FROM (((restaurantRating INNER JOIN healthRating ON restaurantRating.location_idlocation = healthRating.location_idlocation) INNER JOIN crimeRating ON restaurantRating.location_idlocation = crimeRating.location_idlocation) INNER JOIN educationRating ON restaurantRating.location_idlocation = educationRating.location_idlocation) INNER JOIN mobilityRating ON restaurantRating.location_idlocation = mobilityRating.location_idlocation WHERE restaurantRating.location_user_iduser = ?;";
 
             con.query(sql,iduser ,function (err, result) 
             {
