@@ -110,7 +110,7 @@ app.post('/updateCategory', function (req, res)
     if(iduser==null||category==null||route==null) res.send({"status":"Not enough parameters"});
     else
     {
-        var categories = ["restaurantrating","healthrating","crimerating","educationrating","mobilityrating"];
+        var categories = ["restaurantRating","healthRating","crimeRating","educationRating","mobilityRating"];
         if (categories.length < parseInt(category) || parseInt(category) < 0) res.send({"status":0});
         else
         {     
