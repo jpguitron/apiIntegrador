@@ -72,23 +72,23 @@ app.post('/userData', function (req, res)
                 {
                     if (result[i].restaurantunlocked == 0)
                     {
-                        result[i].restaurantrating = "false";
+                        result[i].restaurantRating = "false";
                     }
                     if(result[i].healthunlocked == 0)
                     {
-                        result[i].healthrating = "false";
+                        result[i].healthRating = "false";
                     }
                     if (result[i].crimeunlocked == 0)
                     {
-                        result[i].crimerating = "false";
+                        result[i].crimeRating = "false";
                     }
                     if(result[i].educationunlocked == 0)
                     {
-                        result[i].educationrating = "false";
+                        result[i].educationRating = "false";
                     }
                     if(result[i].mobilityunlocked ==0)
                     {
-                        result[i].mobilityrating = "false";
+                        result[i].mobilityRating = "false";
                     }
                     respon.push({"routeId":result[i].routeid,"restaurantRating":result[i].restaurantRating,"healthRating":result[i].healthRating,"crimeRating":result[i].crimeRating,"educationRating":result[i].educationRating,"mobilityRating":result[i].mobilityRating});
                 }
