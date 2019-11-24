@@ -90,7 +90,7 @@ app.post('/userData', function (req, res)
                     {
                         result[i].mobilityrating = "false";
                     }
-                    respon.push({"routeId":result[i].routeid,"restaurantRating":result[i].restaurantrating,"healthRating":result[i].healthrating,"crimeRating":result[i].crimerating,"educationRating":result[i].educationrating,"mobilityRating":result[i].mobilityrating});
+                    respon.push({"routeId":result[i].routeid,"restaurantRating":result[i].restaurantRating,"healthRating":result[i].healthRating,"crimeRating":result[i].crimeRating,"educationRating":result[i].educationRating,"mobilityRating":result[i].mobilityRating});
                 }
     
                 var response = {"status":status, "ratings":respon};
