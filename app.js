@@ -186,10 +186,10 @@ app.post('/places', function (req, res)
                             else
                             {
                                 db.registerCrime(idlocation, locationJson.Results.output1[0].crimeRating, user);
-                                db.registerEducation(idlocation, locationJson.Results.output1[0].crimeRating, user);
-                                db.registerHealth(idlocation, locationJson.Results.output1[0].crimeRating, user);
-                                db.registerMobility(idlocation, locationJson.Results.output1[0].crimeRating, user);
-                                db.registerRestaurant(idlocation, locationJson.Results.output1[0].crimeRating, user);
+                                db.registerEducation(idlocation, locationJson.Results.output1[0].educationRating, user);
+                                db.registerHealth(idlocation, locationJson.Results.output1[0].healthRating, user);
+                                db.registerMobility(idlocation, locationJson.Results.output1[0].mobilityRating, user);
+                                db.registerRestaurant(idlocation, locationJson.Results.output1[0].registerRating, user);
                                 
                                 locationJson.Results.output1[0].routeId = idlocation
                                 body = locationJson.Results.output1[0];
