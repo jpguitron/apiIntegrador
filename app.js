@@ -189,7 +189,7 @@ app.post('/places', function (req, res)
                                 db.registerEducation(idlocation, locationJson.Results.output1[0].educationRating, user);
                                 db.registerHealth(idlocation, locationJson.Results.output1[0].healthRating, user);
                                 db.registerMobility(idlocation, locationJson.Results.output1[0].mobilityRating, user);
-                                db.registerRestaurant(idlocation, locationJson.Results.output1[0].registerRating, user);
+                                db.registerRestaurant(idlocation, locationJson.Results.output1[0].restaurantRating, user);
                                 
                                 locationJson.Results.output1[0].routeId = idlocation
                                 body = locationJson.Results.output1[0];
